@@ -171,7 +171,156 @@ Throughout this paper, we will use ... for the nations.
 
 \section{Brief balanced truncation for parametric linear systems and standard interpolation}\label{Sec:BT_standard interpolation}
 \subsection{Balanced truncation}
+As other projection-based method, a balancing projection for system \eqref{eq:psys} must be constructed. To this end, one has to solve a pair of the generalized Lyapunov equations
+\begin{eqnarray}
+\label{eq:LyapContr}
+E(\mu)P(\mu)A^T\!(\mu) + A(\mu)P(\mu)E^T\!(\mu) & = & -B(\mu)B^T\!(\mu), \\
+\label{eq:LyapObser}
+E^T(\mu)Q(\mu)A(\mu) + A^T(\mu)Q(\mu)E(\mu) & = & -C^T(\mu)C(\mu),
+\end{eqnarray}
+for the \textit{controllability Gramian} $P(\mu)$ and the \textit{observability Gramian} $Q(\mu)$. In practice, 
+these Gramians are computed in the factored form 
+$$
+P(\mu) = X(\mu)X^T(\mu), \qquad Q(\mu) = Y(\mu)Y^T(\mu)
+$$ 
+with $X(\mu)\in\mathbb{R}^{n\times k_c}$ and $Y(\mu)\in\mathbb{R}^{n\times k_o}$. One can show that eigenvalues of the matrix $P(\mu)E^T(\mu)Q(\mu)E(\mu)$ are real and non-negative. The square roots of the eigenvalues of this matrix $\sigma_1(\mu) \geq \cdots \geq \sigma_{n}(\mu)\geq 0$ are called the \textit{Hankel singular values} of system \eqref{eq:psys}. Consider the singular value decomposition 
+\begin{align}
+\label{eq:SVD}
+Y^T(\mu)E(\mu)X(\mu) = [U_1(\mu)\enskip U_0(\mu)]\begin{bmatrix}
+\Sigma_1(\mu) & 0\\ 0 & \Sigma_0(\mu)
+\end{bmatrix} [V_1(\mu)\enskip V_0(\mu)]^T,
+\end{align}
+where $[U_1(\mu)\enskip U_0(\mu)]$ and $[V_1(\mu)\enskip V_0(\mu)]$ are orthogonal, and
+$$
+\Sigma_1(\mu) = \mbox{diag}(\sigma_1(\mu),\ldots,\sigma_r(\mu)), \quad 
+\Sigma_0(\mu) = \mbox{diag}(\sigma_{r+1}(\mu),\ldots,\sigma_{k_{co}}(\mu))
+$$
+with $k_{co}=\min(k_c,k_o)$.
+Then the reduced-order model is computed by projection 
+\begin{equation}\label{eq:RedMatr}
+\begin{array}{ll}
+\tilde{E}(\mu) = W^T(\mu)E(\mu)T(\mu),& \quad \tilde{A}(\mu) = W^T(\mu)A(\mu)T(\mu), \\
+\tilde{B}(\mu) = W^T(\mu)B(\mu), & \quad \tilde{C} = C(\mu)T(\mu),
+\end{array}
+\end{equation}
+where the projection matrices are given by
+\begin{equation}
+W(\mu) = Y(\mu)U_1(\mu) \Sigma_1^{-1/2}(\mu), \qquad T(\mu) = X(\mu)V_1(\mu)\Sigma_1^{-1/2}(\mu).
+\label{eq:WT}
+\end{equation}
+The error of the approximation is shown to satisfy 
+\begin{equation*}%\label{S2ErrBound}
+\|H(\cdot,\mu)-\tilde{H}(\cdot,\mu)\|_{\mathcal{H}_\infty} \leq 2\bigl(\sigma_{r+1}(\mu) + \cdots + \sigma_{k_{co}}(\mu)\bigr),
+\end{equation*}
+where 
+\begin{align*}
+H(s,\mu)& =C(\mu)(sE(\mu)-A(\mu))^{-1}B(\mu), \\
+\tilde{H}(s,\mu)&=\tilde{C}(\mu)(s\tilde{E}(\mu)-\tilde{A}(\mu))^{-1}\tilde{B}(\mu)
+\end{align*}
+are the transfer functions of systems \eqref{eq:psys} and \eqref{eq:redpsys}, respectively. 
 \subsection{Interpolation of gramians for parametric model order reduction}
+To wit, 
+on a~chosen grid $\mu_1,\ldots,\mu_k \in \Omega$, we solve the equations (\ref{eq:LyapContr}) and (\ref{eq:LyapObser}) 
+for $P_j=X_j^{}X_j^T\in\mathcal{S}_+(k_c,n)$ and $Q_j=Y_j^{}Y_j^T\in\mathcal{S}_+(k_o,n)$, $j=1,\ldots,q$. Then the parameter-dependent Gramians can be obtained in the form
+\begin{align*}
+P(\mu) =R\bigl(P_*, \sum_{j=1}^q w_j(\mu) L(P_*,P_j)\bigr)=U(\mu)Z^{-1}\!(\mu)U^T(\mu), \\
+Q(\mu) =R\bigl(Q_*, \sum_{j=1}^q w_j(\mu) L(Q_*,Q_j)\bigr)=V(\mu)R^{-1}\!(\mu)V^T(\mu)
+\end{align*}
+using the interpolation method presented in Section~\ref{sec:Inter}, where the contact points 
+$P_*=\hat{X}\hat{X}^T\in\mathcal{S}_+(k_c,n)$ and $Q_*=\hat{Y}\hat{Y}^T\in\mathcal{S}_+(k_o,n)$ are determined by averaging as described in Section~\ref{sec:Aver}. Using \eqref{eq:UPhi} the factors of the Gramians can be represented as
+\begin{equation}
+\arraycolsep=2pt
+\begin{array}{rcll}
+U(\mu) & = & \sum\limits_{j=1}^q w_j(\mu) U_j, & \qquad U_j=X_j(X_j^T \hat{X}),\\
+\Phi(\mu) & = & \sum\limits_{j=1}^q w_j(\mu) \Phi_j, & \qquad \Phi_j=(X_j^T \hat{X})^T(X_j^T \hat{X}),
+\end{array}
+\label{eq:UPhimu}
+\end{equation}
+and 
+\begin{equation}
+\arraycolsep=2pt
+\begin{array}{rcll}
+V(\mu) & = & \sum\limits_{j=1}^q w_j(\mu) V_j, & \qquad V_j=Y_j(Y_j^T \hat{Y}), \\
+\Psi(\mu) & = & \sum\limits_{j=1}^q w_j(\mu) \Psi_j, & \qquad \Psi_j=(Y_j^T \hat{Y})^T(Y_j^T \hat{Y}).
+\end{array}
+\label{eq:VPsimu}
+\end{equation}
+Considering the Cholesky factorizations 
+\begin{equation}
+\Phi(\mu)=C_{\Phi}^{}(\mu)C_{\Phi}^T(\mu), \qquad
+\Psi(\mu)=C_{\Psi}^{}(\mu)C_{\Psi}^T(\mu),
+\label{eq:Chol}
+\end{equation}
+we rewrite the Gramians $P(\mu)$ and $Q(\mu)$ as 
+\begin{equation}
+\arraycolsep=2pt
+\begin{array}{ll}
+P(\mu)=X(\mu)X^T(\mu), & \qquad X(\mu) =U(\mu)C_{\Phi}^{-T}(\mu),\\
+Q(\mu)=Y(\mu)Y^T(\mu), & \qquad Y(\mu) =V(\mu)C_{\Psi}^{-T}(\mu).
+\end{array}
+\label{eq:PQmu}
+\end{equation}
+After the interpolation step, we still have to proceed steps \eqref{eq:SVD} and \eqref{eq:RedMatr}) to get the reduced-order models; computation still involves large matrices. Due to the simulation requirement of parameter dependent systems, the online stage should have the computational complexity independent of $n$. We propose a method which decomposes the procedure into two stages, so-called offline-online decomposition. The advantage of this algorithm is that in the offline stage, expensive and time consuming computations can be done and the parameter-independent data can be stored for the online stage. The online stage, counted from the moment when a value of $\mu$ is given till the moment that the reduced-order system is computed, has computational complexity independent of $n$ and therefore can be used in real time \cite{Son13}. 
+
+\subsection{Offline-online decomposition}
+
+To enable the online-offline decomposition, we need an assumption that the system matrices in (\ref{eq:psys}) 
+depend affinely on the parameter $\mu$. More precisely,
+\begin{align*}%\label{S3AffDep}
+&E(\mu) = \sum\limits_{i=1}^{q_E}f_i^E(\mu)E_i,\quad A(\mu) = \sum\limits_{i=1}^{q_A}f_i^A(\mu)A_i,\\
+&B(\mu) = \sum\limits_{i=1}^{q_B}f_i^B(\mu)B_i, \quad C(\mu) = \sum\limits_{i=1}^{q_C}f_i^C(\mu)C_i,
+\end{align*}
+where $q_E, q_A, q_B$ and $q_C$ are small, and the evaluation of $f_i^E,f_i^A,f_i^B$ and $f_i^C$ is  cheap. When the interpolated Gramians \eqref{eq:PQmu} available, we have
+\begin{align}\notag
+Y^T(\mu)E(\mu)X(\mu) &= C_{\Psi}^{-1}(\mu)\Bigl(\sum\limits_{j=1}^q w_j(\mu) V_j^T\Bigr)\Bigl(\sum\limits_{i=1}^{q_E}f_i^E(\mu)E_i\Bigr)\Bigl(\sum\limits_{l=1}^q w_l(\mu) U_l\Bigr)C_{\Phi}^{-T}(\mu)\\
+& = C_{\Psi}^{-1}(\mu)\Bigl(\sum\limits_{j,l=1}^{q}\sum\limits_{i=1}^{q_E} w_j(\mu)w_l(\mu)f_i^E(\mu) V_j^TE_iU_l^{}\Bigr)C_{\Phi}^{-T}(\mu).
+\label{eq:pSVD}
+\end{align}
+Computing the SVD (\ref{eq:SVD}) of this matrix, the projection matrices are determined as in \eqref{eq:WT}. 
+The reduced-order matrices \eqref{eq:RedMatr} are then computed on the same manner as the product (\ref{eq:pSVD}):
+\begin{equation}
+\arraycolsep=2pt
+\begin{array}{rcl}
+\tilde{E}(\mu) & = & %W^T(\mu)E(\mu)T(\mu)= 
+F(\mu)\Bigl(\sum\limits_{j,l=1}^{q}\sum\limits_{i=1}^{q_E} w_j(\mu)w_l(\mu)f_i^E(\mu) V_j^TE_iU_l^{}\Bigr)G(\mu),\\
+\tilde{A}(\mu) & = & F(\mu)\Bigl(\sum\limits_{j,l=1}^{q}\sum\limits_{i=1}^{q_A} w_j(\mu)w_l(\mu)f_i^A(\mu) V_j^T A_iU_l^{}\Bigr)G(\mu),\\
+\tilde{B}(\mu) & = & F(\mu)\Bigl(\sum\limits_{j=1}^{q}\sum\limits_{i=1}^{q_B} w_j(\mu)f_i^B(\mu) V_j^T B_i\Bigr),\\
+\tilde{C}(\mu) & = & \Bigl(\sum\limits_{l=1}^{q}\sum\limits_{i=1}^{q_C} w_l(\mu)f_i^C(\mu) C_iU_l^{}\Bigr)G(\mu),
+\end{array}
+\label{eq:RedMatrPar}
+\end{equation}
+where $F(\mu)=\Sigma_1^{-1/2}(\mu)U_1^T(\mu)C_{\Psi}^{-1}(\mu)$ and $G(\mu)=C_{\Phi}^{-T}(\mu)V_1(\mu) \Sigma_1^{-1/2}(\mu)$. Note that all parameter-independent matrices in \eqref{eq:pSVD} and \eqref{eq:RedMatrPar} can be pre-computed and stored in the offline stage and used then in the online stage to compute \eqref{eq:pSVD} and \eqref{eq:RedMatrPar} for any value $\mu\in\Omega$. 
+Based on the above analysis, the offline-online procedure is given as follows.
+
+{\bf Offline:} \begin{itemize}
+	\item For $\mu_1,\ldots,\mu_q\in\Omega$, solve the Lyapunov equations \eqref{eq:LyapContr} and \eqref{eq:LyapObser} for $P_j= X_j^{}X_j^T$ and $Q_j= Y_j^{}Y_j^T$, $j = 1,\ldots,q$, respectively, using, for example, the alternating direction implicit method \cite{,};
+	
+	\item compute the contact points $P_*=\hat{X}\hat{X}^T$ and $Q_*=\hat{Y}\hat{Y}^T$ using the averaging procedure in Algorithm~\ref{alg:averaging};
+	
+	\item compute and store all parameter-independent matrices $U_j$, $\Phi_j$ and $V_j$, $\Psi_j$ as in \eqref{eq:UPhimu} and \eqref{eq:VPsimu};
+	
+	\item compute and store all parameter-independent matrices in \eqref{eq:pSVD} and \eqref{eq:RedMatrPar}.
+\end{itemize}
+{\bf Online:} For given $\mu\in\Omega$, \hfill Costs:
+\begin{itemize}
+	\item evaluate $w_j(\mu)$ for $j=1,\ldots, q$;
+	
+	\item assemble the matrices $\Phi(\mu)$ and $\Psi(\mu)$ as in \eqref{eq:UPhimu} and \eqref{eq:VPsimu};
+	\hfill $2q(k_c^2+k_o^2)$
+	
+	\item compute the Cholesky factorizations \eqref{eq:Chol}; \hfill $(k_c^3+k_o^3)/6$
+	
+	\item assemble the matrix \eqref{eq:pSVD}; \hfill $2q^2q_Ek_ck_o+k_c^2k_o+k_c k_o^2$
+	
+	\item compute the SVD \eqref{eq:SVD}; \hfill $\mathcal{O}(k_ck_o^2+k_c^3)$
+	
+	\item compute the reduced-order matrices \eqref{eq:RedMatrPar}.
+	\hfill $2q^2 q_A k_c k_o +2q q_B k_o m+2q q_C k_c p$\\ \hspace*{6cm} $+r(k_c+k_o)^2+r(k_ck_o+k_cp+k_om+rk_c)$
+	
+\end{itemize}
+
+One can see that the computational complexity of the online stage except for the first step is independent of $n$. 
+
 
 \section{Manifold $\mathcal{S}_+(k,n)$ and its interpolation scheme}\label{Sec:Manifold}
 \subsection{A quotient geometry of $\mathcal{S}_+(k,n)$}

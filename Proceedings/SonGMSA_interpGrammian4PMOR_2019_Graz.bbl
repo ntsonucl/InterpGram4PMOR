@@ -68,6 +68,11 @@ Penzl, T.: Eigenvalue decay bounds for solutions of {L}yapunov equations: the
 Son, N.: Interpolation based parametric model order reduction.
 \newblock {P}h.{D.} thesis, Universit\"at Bremen, Germany (2012)
 
+\bibitem{Son13}
+Son, N.: A real time procedure for affinely dependent parametric model order
+  reduction using interpolation on grassmann manifolds.
+\newblock Internat. J. Numer. Methods Engng. \textbf{93}(8), 818--833 (2013)
+
 \bibitem{SonS15}
 Son, N., Stykel, T.: Model order reduction of parameterized circuit equations
   based on interpolation.
