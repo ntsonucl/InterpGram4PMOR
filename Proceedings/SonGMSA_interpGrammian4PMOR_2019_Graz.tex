@@ -114,7 +114,7 @@ positive semi-definite matrices. In this talk, we will present two approaches fo
 these structured matrices which are based on linear algebra and a recently developed Riemannian geometry. The result is then utilized in constructing parametric reduced-order
 systems. Their numerical performances are compared on different models
 \keywords{
-Interpolation \and Parametric model order reduction \and Balanced truncation \and interpolation \and gramians \and Riemannian matrix manifold \and Symmetric positive semi-definite matrices of fixed rank 
+Parametric model order reduction \and Balanced truncation \and Interpolation \and Gramians \and Riemannian matrix manifold \and Symmetric positive semi-definite matrices of fixed rank 
 }
 % \PACS{PACS code1 \and PACS code2 \and more}
 \subclass{
@@ -130,7 +130,45 @@ Interpolation \and Parametric model order reduction \and Balanced truncation \an
 
 
 \section{Introduction}\label{Sec:Intro}
-I cite somebody here \cite{AbsiMS08}.
+The need for increasingly accurate simulations in science and
+technology results in large-scale mathematical models. Simulation of those systems is usually time-consuming or even infeasible, especially with limited computer resources. Model order reduction (MOR) is well known as a tool to
+deal with such problems. Founded and continuously developed already for a couple of decades, this field is still getting attraction due to the fact that many complicated or large problems have not been considered and many advanced methods have not been invoked. 
+
+In many cases, the full order model (FOM) depends on parameters. The reduced-order model (ROM), preferably parameter-dependent as well, is therefore required to approximate the FOM on a given parameter domain. This problem, so-called parametric MOR (PMOR), has been addressed by various approaches that are based on Krylov subspaces [cite], interpolation, optimization [cite], just to name a few. The reader is referred to the survey \cite{BennGW15} for more details. Of our interest in this report is the methods that use interpolation for the linear parametric system of the form
+\begin{equation}
+\label{eq:psys}
+\arraycolsep=2pt
+\begin{array}{rcl}
+E(\mu)\dot{x}(t,\mu) & = &A(\mu)x(t,\mu)+B(\mu)u(t),\\
+y(t,\mu) & = & C(\mu)x(t,\mu),
+\end{array}
+\end{equation}
+where $E(\mu)$, $A(\mu) \in \mathbb{R}^{n\times n}$, $B(\mu) \in \mathbb{R}^{n\times m}$, 
+$C(\mu) \in \mathbb{R}^{p\times n}$ with $p,m \ll n$, and $\mu\in\Omega\subset \mathbb{R}^d$. We assume that the matrix 
+$E(\mu)$ is nonsingular and all eigenvalues of the pencil $\lambda E(\mu)-A(\mu)$ have negative real part for all $\mu\in\Omega$. The goal is to approximate system \eqref{eq:psys} with a parametric model
+\begin{equation}
+\label{eq:redpsys}
+\arraycolsep=2pt
+\begin{array}{rcl}
+\tilde{E}(\mu)\dot{\tilde{x}}(t,\mu) & =\tilde{A}(\mu)\tilde{x}(t,\mu)+\tilde{B}(\mu)u(t),\\
+\tilde{y}(t,\mu) & =\tilde{C}(\mu)\tilde{x}(t,\mu),
+\end{array}
+\end{equation}
+where $\tilde{E}(\mu)$, $\tilde{A}(\mu) \in \mathbb{R}^{r\times r}$, $\tilde{B}(\mu)\in\mathbb{R}^{r\times m}$, 
+$\tilde{C}(\mu) \in \mathbb{R}^{p\times r}$ and $r \ll n$. 
+
+The idea of interpolation is straightforward. On a given grid $\mu_i$, $i = 1, \dots, N$ in the parameter domain $\Omega$, one computes a ROM associated with each $\mu_i$. These ROMs can be computed using any MOR method for non-parametric models \cite{Anto05} and characterized by either their  projection subspaces, coefficient matrices, or transfer functions. Then, they are interpolated using standard methods. These topics have been discussed intensively in many publications with applications to various fields, see, e.g., \cite{AmsaF08,BaurB09,PanzMEL10,DegrVW10,AmsaF11,Son12,SonS15}. Each of them has its own strength and acts well in some specific applications but fails to be superior to the others. 
+
+When balanced truncation \cite{Moor81} is used,  one has to solve a pair of Lyapunov equations for the two gramians. Although advances in solving such equations have been made, it is still the most expensive step in this reduction method. Therefore, any interpolation method that can circumvent this step is of interest. We suggest to interpolate the solution of these equations, so-called gramians. It is noteworthy that in large-scale setting, one should never work with full-rank solution matrices. Fortunately, in many practical cases, Lyapunov equaions accept low-rank symmetric positive semi-definite (spsd) approximation \cite{Penz00b,AntoSZ02}. It not only makes the computation more efficient but also enables the squaring procedure in balanced truncation \cite{TombP87}. A resulting difficulty arises in the interpolation approach is that the interpolant is also expected to be low-rank spsd. That is, the spsd property must be preserved during the interpolation. To this end, we propose in this paper two approaches. In the first one, we first invoke some positive interpolation scheme to preserve the semi-definiteness and then use some compression technique to keep the interpolant low-rank. After that, an offline-online decomposition is used to integrate this step into the whole reduction process that accelerates the online stage. We refer to this as linear algebraic approach. The second one is based completely on differential geometry, so the name. It was shown in \cite{VandAV09,MassA18} that the set of spsd matrices of fixed rank can be turned into a Riemannian manifold by equipping it with a differential structure. As a result, if all solutions of the Lyapunov equations at grid points are approximated by spsd matrices of a prescribed low rank, we then encounter interpolation on a Riemannian manifold. 
+
+The rest of the paper is organized as follows. In section~\ref{Sec:BT_standard interpolation} we first briefly recall the squaring procedure for balancing equation and then present in detail how interpolate the gramians while preserve its low-rank semi-positiveness and how to prepare data in the offline step so that we can speed up the online step. A quotient geometry for the Riemannian manifold of spsd matrices of fixed rank is constructed in the first part of section~\ref{Sec:Manifold}. We then explain in detail how to interpolate on this manifold using the tools just developed. We also discuss the possibility of using a embedded geometry  for this talk in this section. The proposed approaches are illustrated by numerical examples in section~\ref{Sec:NumerExam} in which we also compare their behaviors and numerical efficiency. Conclusion is given in section~\ref{Sec:Concl}. 
+
+Throughout this paper, we will use ... for the nations.
+
+
+
+
+
 \section{Brief balanced truncation for parametric linear systems and standard interpolation}\label{Sec:BT_standard interpolation}
 \subsection{Balanced truncation}
 \subsection{Interpolation of gramians for parametric model order reduction}

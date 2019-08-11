@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -6,9 +6,84 @@
   \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 
-\bibitem{AbsiMS08}
-Absil, P.A., Mahony, R., Sepulchre, R.: Optimization Algorithms on Matrix
-  Manifolds.
-\newblock Princeton University Press, Princeton, NJ (2008)
+\bibitem{AmsaF08}
+Amsallem, D., Farhat, C.: Interpolation method for adapting reduced-order
+  models and application to aeroelasticity.
+\newblock AIAAJ \textbf{46}(7), 1803--1813 (2008)
+
+\bibitem{AmsaF11}
+Amsallem, D., Farhat, C.: An online method for interpolating linear
+  reduced-order models.
+\newblock SIAM J. Sci. Comput. \textbf{33}(5), 2169--2198 (2011)
+
+\bibitem{Anto05}
+Antoulas, A.: Approximation of Large-Scale Dynamical Systems.
+\newblock SIAM, Philadelphia, PA (2005).
+\newblock \doi{10.1137/1.9780898718713}
+
+\bibitem{AntoSZ02}
+Antoulas, A., Sorensen, D., Zhou, Y.: On the decay rate of the {H}ankel
+  singular values and related issues.
+\newblock Systems Control Lett. \textbf{46}(5), 323--342 (2002)
+
+\bibitem{BaurB09}
+Baur, U., Benner, P.: Modellreduktion f\"ur parametrisierte {S}ysteme durch
+  balanciertes {A}bschneiden und {I}nterpolation.
+\newblock at-Automatisierungstechnik \textbf{57}(8), 411--422 (2009).
+\newblock \doi{10.1524/auto.2009.0787}
+
+\bibitem{BennGW15}
+Benner, P., Gugercin, S., Willcox, K.: A survey of projection-based model
+  reduction methods for parametric dynamical systems.
+\newblock SIAM Review \textbf{57}(4), 483--531 (2015)
+
+\bibitem{DegrVW10}
+Degroote, J., Vierendeels, J., Willcox, K.: Interpolation among reduced-order
+  matrices to obtain parameterized models for design, optimization and
+  probabilistic analysis.
+\newblock Int. J. Numer. Meth. Fl. \textbf{63}, 207--230 (2010)
+
+\bibitem{MassA18}
+Massart, E., Absil, P.A.: Quotient geometry with simple geodesics for the
+  manifold of fixed-rank positive-semidefinite matrices.
+\newblock Technical Report UCL-INMA-2018.06, Universit\'e catholique de
+  Louvain, Louvain-la-Neuve, Belgium, (2018)
+
+\bibitem{Moor81}
+Moore, B.: Principal component analysis in linear systems: controllability,
+  observability, and model reduction.
+\newblock {IEEE} Trans. Automat. Control \textbf{AC-26}(1), 17--32 (1981)
+
+\bibitem{PanzMEL10}
+Panzer, H., Mohring, J., Eid, R., Lohmann, B.: Parametric model order reduction
+  by matrix interpolation.
+\newblock at -- Automatisierungstechnik \textbf{58}(4), 475--484 (2010)
+
+\bibitem{Penz00b}
+Penzl, T.: Eigenvalue decay bounds for solutions of {L}yapunov equations: the
+  symmetric case.
+\newblock Systems Control Lett. \textbf{40}(2), 139--144 (2000)
+
+\bibitem{Son12}
+Son, N.: Interpolation based parametric model order reduction.
+\newblock {P}h.{D.} thesis, Universit\"at Bremen, Germany (2012)
+
+\bibitem{SonS15}
+Son, N., Stykel, T.: Model order reduction of parameterized circuit equations
+  based on interpolation.
+\newblock Adv. Comput. Math. \textbf{41}(5), 1321--1342 (2015)
+
+\bibitem{TombP87}
+Tombs, M.S., Postlethweite, I.: Truncated balanced realization of a stable
+  non-minimal state-space system.
+\newblock Internat. J. Control \textbf{46}(4), 1319--1330 (1987).
+\newblock \doi{https://doi.org/10.1080/00207178708933971}
+
+\bibitem{VandAV09}
+Vandereycken, B., Absil, P.A., Vandewalle, S.: Embedded geometry of the set of
+  symmetric positive semidefinite matrices of fixed rank.
+\newblock In: Proceedings of the IEEE 15th Workshop on Statistical Signal
+  Processing {\em (Washington, DC)}, pp. 389--392. IEEE (2009).
+\newblock \doi{https://doi.org/10.1109/SSP.2009.5278558}
 
 \end{thebibliography}
