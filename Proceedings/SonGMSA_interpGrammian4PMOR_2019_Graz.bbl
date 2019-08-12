@@ -6,6 +6,11 @@
   \providecommand{\doi}{DOI~\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 
+\bibitem{Alla03}
+Allasia, G.: Simultaneous interpolation and approximation by a class of
+  multivariate positive operators.
+\newblock NumerAlg \textbf{34}, 147--158 (2003)
+
 \bibitem{AmsaF08}
 Amsallem, D., Farhat, C.: Interpolation method for adapting reduced-order
   models and application to aeroelasticity.
@@ -43,6 +48,12 @@ Degroote, J., Vierendeels, J., Willcox, K.: Interpolation among reduced-order
   probabilistic analysis.
 \newblock Int. J. Numer. Meth. Fl. \textbf{63}, 207--230 (2010)
 
+\bibitem{HeRS16}
+Hesthaven, J., Rozza, G., Stamm, B.: Certified Reduced Basis Methods for
+  Parametrized Partial Differential Equations.
+\newblock SpringerBriefs in Mathematics. Springer, Cham (2016).
+\newblock \doi{10.1007/978-3-319-22470-1}
+
 \bibitem{MassA18}
 Massart, E., Absil, P.A.: Quotient geometry with simple geodesics for the
   manifold of fixed-rank positive-semidefinite matrices.
@@ -59,6 +70,12 @@ Panzer, H., Mohring, J., Eid, R., Lohmann, B.: Parametric model order reduction
   by matrix interpolation.
 \newblock at -- Automatisierungstechnik \textbf{58}(4), 475--484 (2010)
 
+\bibitem{PateR07}
+Patera, A.T., Rozza, G.: Reduced Basis Approximation and A Posteriori Error
+  Estimation for Parametrized Partial Differential Equations.
+\newblock MIT Pappalardo Graduate Monographs in Mechanical Engineering. MIT, MA
+  (2007)
+
 \bibitem{Penz00b}
 Penzl, T.: Eigenvalue decay bounds for solutions of {L}yapunov equations: the
   symmetric case.
@@ -67,11 +84,6 @@ Penzl, T.: Eigenvalue decay bounds for solutions of {L}yapunov equations: the
 \bibitem{Son12}
 Son, N.: Interpolation based parametric model order reduction.
 \newblock {P}h.{D.} thesis, Universit\"at Bremen, Germany (2012)
-
-\bibitem{Son13}
-Son, N.: A real time procedure for affinely dependent parametric model order
-  reduction using interpolation on grassmann manifolds.
-\newblock Internat. J. Numer. Methods Engng. \textbf{93}(8), 818--833 (2013)
 
 \bibitem{SonS15}
 Son, N., Stykel, T.: Model order reduction of parameterized circuit equations
