@@ -54,6 +54,17 @@ Hesthaven, J., Rozza, G., Stamm, B.: Certified Reduced Basis Methods for
 \newblock SpringerBriefs in Mathematics. Springer, Cham (2016).
 \newblock \doi{10.1007/978-3-319-22470-1}
 
+\bibitem{KrePT14}
+Kressner, D., Ple\v{s}inger, M., Tobler, C.: A preconditioned low-rank {CG}
+  method for parameter-dependent {L}yapunov matrix equations.
+\newblock Numer. Linear Algebra Appl. \textbf{21}(5), 666--684 (2014).
+\newblock \doi{https://doi.org/10.1002/nla.1919}
+
+\bibitem{LiW02}
+Li, J.R., White, J.: Low rank solution of {L}yapunov equations.
+\newblock SIAM J. Matrix Anal. Appl. \textbf{24}(1), 260--280 (2002).
+\newblock \doi{10.1137/S0895479801384937}
+
 \bibitem{MassA18}
 Massart, E., Absil, P.A.: Quotient geometry with simple geodesics for the
   manifold of fixed-rank positive-semidefinite matrices.
@@ -64,6 +75,13 @@ Massart, E., Absil, P.A.: Quotient geometry with simple geodesics for the
 Moore, B.: Principal component analysis in linear systems: controllability,
   observability, and model reduction.
 \newblock {IEEE} Trans. Automat. Control \textbf{AC-26}(1), 17--32 (1981)
+
+\bibitem{MoosRGKH05}
+Moosmann, C., Rudnyi, E.B., Greiner, A., Korvink, J.G., Hornung, M.: Parameter
+  preserving model order reduction of a flow meter.
+\newblock In: Technical Proceedings of the 2005 Nanotechnology Conference and
+  Trade Show (Nanotech 2005, Anaheim, California, USA), vol.~3, pp. 684--687.
+  NSTINanotech (2005)
 
 \bibitem{PanzMEL10}
 Panzer, H., Mohring, J., Eid, R., Lohmann, B.: Parametric model order reduction
@@ -89,6 +107,11 @@ Son, N.: Interpolation based parametric model order reduction.
 Son, N., Stykel, T.: Model order reduction of parameterized circuit equations
   based on interpolation.
 \newblock Adv. Comput. Math. \textbf{41}(5), 1321--1342 (2015)
+
+\bibitem{morwiki_anemom}
+{The MORwiki Community}: Anemometer.
+\newblock {MORwiki} -- Model Order Reduction Wiki (2018).
+\newblock \urlprefix\url{http://modelreduction.org/index.php/Anemometer}
 
 \bibitem{TombP87}
 Tombs, M.S., Postlethweite, I.: Truncated balanced realization of a stable

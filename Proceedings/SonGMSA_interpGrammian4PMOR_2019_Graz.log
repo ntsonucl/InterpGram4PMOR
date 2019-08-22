@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.24)  14 AUG 2019 11:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.24)  22 AUG 2019 14:18
 entering extended mode
 **./SonGMSA_interpGrammian4PMOR_2019_Graz.tex
 (SonGMSA_interpGrammian4PMOR_2019_Graz.tex
@@ -224,18 +224,18 @@ Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 ) (SonGMSA_interpGrammian4PMOR_2019_Graz.aux)
 \openout1 = `SonGMSA_interpGrammian4PMOR_2019_Graz.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
 
 ("C:\Users\nguyenthanhs\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp
 -pdf.mkii"
@@ -319,41 +319,41 @@ SVJour3 warning: Missing \date
 SVJour3 warning: Missing \institute
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <9.5> not available
-(Font)              size <9> substituted on input line 106.
+(Font)              size <9> substituted on input line 113.
 
 
-Overfull \hbox (7.91896pt too wide) detected at line 106
+Overfull \hbox (7.91896pt too wide) detected at line 113
 |[] |
  []
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <13> not available
-(Font)              size <12> substituted on input line 106.
+(Font)              size <12> substituted on input line 113.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 106.
+LaTeX Font Info:    Try loading font information for U+msa on input line 113.
 
 ("C:\Users\nguyenthanhs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\um
 sa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 106.
+LaTeX Font Info:    Try loading font information for U+msb on input line 113.
 
 ("C:\Users\nguyenthanhs\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\um
 sb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Calculating math sizes for size <9.5> on input line 106.
+LaTeX Font Info:    Calculating math sizes for size <9.5> on input line 113.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <9.5> not available
-(Font)              size <9> substituted on input line 106.
+(Font)              size <9> substituted on input line 113.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <9.5> not available
-(Font)              size <9> substituted on input line 106.
+(Font)              size <9> substituted on input line 113.
 
 
-Overfull \hbox (3.99385pt too wide) in paragraph at lines 137--138
+Overfull \hbox (3.99385pt too wide) in paragraph at lines 144--145
 []\OT1/cmr/m/n/9.5 In many cases, the full or-der model (FOM) de-pends on pa-ra
 m-e-ters. The reduced-
  []
@@ -362,7 +362,7 @@ m-e-ters. The reduced-
 [2]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <9.5> not available
-(Font)              size <9> substituted on input line 182.
+(Font)              size <9> substituted on input line 189.
 
 [3] [4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -370,35 +370,108 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [5]
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <9.5> not available
-(Font)              size <9> substituted on input line 335.
+(Font)              size <9> substituted on input line 343.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <9.5> not available
-(Font)              size <9> substituted on input line 335.
+(Font)              size <9> substituted on input line 343.
 
-(SonGMSA_interpGrammian4PMOR_2019_Graz.bbl
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [6]
-Underfull \hbox (badness 1924) in paragraph at lines 94--98
+Underfull \vbox (badness 2903) has occurred while \output is active []
+
+ [7]
+
+pdfTeX warning: pdflatex.exe (file ./pdfFIG/morerr_interp.pdf): PDF inclusion: 
+found PDF version <1.7>, but at most version <1.5> allowed
+<pdfFIG/morerr_interp.pdf, id=41, 380.42125pt x 299.1175pt>
+File: pdfFIG/morerr_interp.pdf Graphic file (type pdf)
+<use pdfFIG/morerr_interp.pdf>
+Package pdftex.def Info: pdfFIG/morerr_interp.pdf  used on input line 408.
+(pdftex.def)             Requested size: 173.5pt x 136.42271pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./pdfFIG/morerr_interp3.pdf): PDF inclusion:
+ found PDF version <1.7>, but at most version <1.5> allowed
+<pdfFIG/morerr_interp3.pdf, id=42, 378.41376pt x 290.08376pt>
+File: pdfFIG/morerr_interp3.pdf Graphic file (type pdf)
+<use pdfFIG/morerr_interp3.pdf>
+Package pdftex.def Info: pdfFIG/morerr_interp3.pdf  used on input line 409.
+(pdftex.def)             Requested size: 173.5pt x 133.00194pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./pdfFIG/morerr_maninterp.pdf): PDF inclusio
+n: found PDF version <1.7>, but at most version <1.5> allowed
+<pdfFIG/morerr_maninterp.pdf, id=43, 379.4175pt x 295.1025pt>
+File: pdfFIG/morerr_maninterp.pdf Graphic file (type pdf)
+<use pdfFIG/morerr_maninterp.pdf>
+Package pdftex.def Info: pdfFIG/morerr_maninterp.pdf  used on input line 413.
+(pdftex.def)             Requested size: 173.5pt x 134.94727pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./pdfFIG/morerr_maninterp3.pdf): PDF inclusi
+on: found PDF version <1.7>, but at most version <1.5> allowed
+<pdfFIG/morerr_maninterp3.pdf, id=44, 380.42125pt x 296.10625pt>
+File: pdfFIG/morerr_maninterp3.pdf Graphic file (type pdf)
+<use pdfFIG/morerr_maninterp3.pdf>
+Package pdftex.def Info: pdfFIG/morerr_maninterp3.pdf  used on input line 414.
+(pdftex.def)             Requested size: 173.5pt x 135.04933pt.
+[8]
+
+pdfTeX warning: pdflatex.exe (file ./pdfFIG/morerr_interp4.pdf): PDF inclusion:
+ found PDF version <1.7>, but at most version <1.5> allowed
+<pdfFIG/morerr_interp4.pdf, id=50, 380.42125pt x 296.10625pt>
+File: pdfFIG/morerr_interp4.pdf Graphic file (type pdf)
+<use pdfFIG/morerr_interp4.pdf>
+Package pdftex.def Info: pdfFIG/morerr_interp4.pdf  used on input line 428.
+(pdftex.def)             Requested size: 173.5pt x 135.04933pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 428--430
+
+ []
+
+
+
+pdfTeX warning: pdflatex.exe (file ./pdfFIG/nrmorig2.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<pdfFIG/nrmorig2.pdf, id=51, 391.4625pt x 296.10625pt>
+File: pdfFIG/nrmorig2.pdf Graphic file (type pdf)
+<use pdfFIG/nrmorig2.pdf>
+Package pdftex.def Info: pdfFIG/nrmorig2.pdf  used on input line 432.
+(pdftex.def)             Requested size: 173.5pt x 131.23596pt.
+
+Overfull \hbox (1.88892pt too wide) in paragraph at lines 427--435
+[]$[]$ $[]$ 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9 <./pdfFIG/morerr_interp.pdf> <./pdfFIG/morerr_interp3.pdf> <./pdfFIG/morerr
+_maninterp.pdf> <./pdfFIG/morerr_maninterp3.pdf>]
+(SonGMSA_interpGrammian4PMOR_2019_Graz.bbl [10 <./pdfFIG/morerr_interp4.pdf> <.
+/pdfFIG/nrmorig2.pdf>]
+Underfull \hbox (badness 1924) in paragraph at lines 117--121
 []\OT1/cmr/m/n/8 Tombs, M.S., Postleth-weite, I.: Trun-cated bal-anced re-al-iz
 a-tion of a sta-ble non-
  []
 
-) [7] (SonGMSA_interpGrammian4PMOR_2019_Graz.aux)
+) [11] (SonGMSA_interpGrammian4PMOR_2019_Graz.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 3005 strings out of 492970
- 40899 string characters out of 3123485
- 117899 words of memory out of 3000000
- 6819 multiletter control sequences out of 15000+200000
+ 3051 strings out of 492970
+ 42007 string characters out of 3123485
+ 118034 words of memory out of 3000000
+ 6858 multiletter control sequences out of 15000+200000
  15170 words of font info for 57 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,15n,25p,1265b,330s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,15n,25p,1380b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cmextra/cmbsy9.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/nguyenthanhs/AppData/L
@@ -410,23 +483,27 @@ ic/amsfonts/cm/cmbx9.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2
 al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/nguye
 nthanhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.
 pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmmi9.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb><C:/Users/nguyenthanhs/AppData/
-Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/ngu
-yenthanhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8
-.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr9.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/nguyenthanhs/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/nguyenth
-anhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb
-><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmti8.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/nguyenthanhs/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on SonGMSA_interpGrammian4PMOR_2019_Graz.pdf (7 pages, 233584 by
-tes).
+/amsfonts/cm/cmmi8.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/nguyenthanhs/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb><C:/Users/ng
+uyenthanhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+5.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr6.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/nguyenthanhs/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/nguyentha
+nhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
+<C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmsy7.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/nguyenthanhs/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/nguyenthanhs
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:
+/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb><C:/Users/nguyenthanhs/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on SonGMSA_interpGrammian4PMOR_2019_Graz.pdf (11 pages, 485833 b
+ytes).
 PDF statistics:
- 102 PDF objects out of 1000 (max. 8388607)
+ 180 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

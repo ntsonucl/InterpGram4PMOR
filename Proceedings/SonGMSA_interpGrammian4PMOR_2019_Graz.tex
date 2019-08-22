@@ -64,7 +64,14 @@
 \usepackage{algorithmic}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
 \renewcommand{\algorithmicensure}{\textbf{Output:}}
-%
+
+
+\newcommand{\nts}[1]{\textcolor{magenta}{ #1}}
+\newcommand{\ts}[1]{\textcolor{blue}{ #1}}
+\newcommand{\paa}[1]{\textcolor{red}{ #1}}
+\newcommand{\pyg}[1]{\textcolor{cyan}{ #1}}
+\newcommand{\ema}[1]{\textcolor{green}{ #1}}
+
 % please place your own definitions here and don't use \def but
 % \newcommand{}{}
 %
@@ -322,8 +329,9 @@ Again, all matrix blocks, that are independent of $\mu$, can be computed and sto
 		\item Assemble precomputed matrix blocks and compute the reduced matrices (\ref{S3RedMatPara1})-(\ref{S3RedMatPara2}). 
 	\end{itemize}
 \end{description}
-Assume that all approximate solutions of Lyapunov equations have rank $l_r$, ene can see that the computational complexity of the online stage is scaled with $\mathcal{O}(rk^2l_r^2)$.
+Assume that all approximate solutions of Lyapunov equations have rank $l_r$, one can see that the computational complexity of the online stage is scaled with $\mathcal{O}(rk^2l_r^2)$.
 
+\nts{perhaps better with an algorithm?}
 
 
 
@@ -335,9 +343,125 @@ Assume that all approximate solutions of Lyapunov equations have rank $l_r$, ene
 \section{Manifold $\mathcal{S}_+(k,n)$ and its interpolation scheme}\label{Sec:Manifold}
 \subsection{A quotient geometry of $\mathcal{S}_+(k,n)$}
 \subsection{Curve and surface interpolation for parametric model order reduction}
-\subsection{A note on imbedded geometry of $\mathcal{S}_+(k,n)$}
+\subsection{A note on embedded geometry of $\mathcal{S}_+(k,n)$}
+\nts{In the introduction, we mentioned both embedded and quotient geometries. I just want to explain here why we don't use the embedded one for interpolation. Please give opinion on the necessity of this subsection.}
 
+\nts{Might be good to know: In an unpublished work, I and Tatjana have developed all necessary tools for interpolation using this geometry. What we did is the simple scheme: interpolating all in one tangent space. For widespread data, we encountered the problem that retraction and/or the lifting map are not defined. This is the result of high curvature of the model where we roughly showed in one lemma that it is the smallest singular value. For this reason, we did not invest more time for it. For the interpolation scheme presented in section~\ref{Sec:Manifold}, we use quotient geometry whose curvature, if I understand correctly, is the square root of the smallest singular value which is usually larger than itself in our setting. In addition, the interpolation method is more complicated and designed to avoid this problem. As a result, we don't face any problem. However, we don't know this good behavior coming from either both or one of the mentioned facts unless we try this interpolation for embedded geometry.}
+
+\nts{Worth to invest more time or better to ignore?}
+
+
+%It is well known \cite{VandAV09,VandV10} that one can equip $\mathcal{S}_+(k,n)$ with an embedded geometry and make this set a Riemannian manifold. A 
 \section{Numerical examples}\label{Sec:NumerExam}
+We consider in this section two numerical examples. Before going into detail, we would like to discuss some details and report the general setting. First, the choice for positive weight coefficients used in algebraic approach. Options are weights based on distance from the test point to training points and linear splines. Our tests revealed that the latter delivers smaller error. Moreover, since we have to gather all data to make a big matrix in this method, see \eqref{S3GramparaLR}, too much data may result in inefficiency. Therefore, we only use linear spline in the numerical test. That is, instead of $q$ matrix blocks in each factor of \eqref{S3GramparaLR}, there are only two (resp., four) of them for model with one (resp., two) parameter(s) regardless of the number of training points. One advantage of this fact is that if we want more accuracy by increasing the number of training points, more computation will be required in the offline stage but this makes no changes in the online stage; with the same argument, this local interpolation is much less affected by the so-called curse of dimensionality when the number of parameters increases compared to the conventional approach. \nts{(Geometric method may have this advantage; I will check it carefully and add details.)}
+
+For viewing the numerical accuracy, we compute an approximate $\mathcal{H}_\infty$-norm of the absolute errors in the frequency response defined as
+\begin{equation}
+\arraycolsep=2pt
+\begin{array}{rcl}
+\|H(\cdot,\mu)-\tilde{H}(\cdot,\mu)\|_{\mathcal{H}_\infty} & = &
+\displaystyle{\sup_{\omega\in\mathbb{R}}\|H(i\omega,\mu)-\tilde{H}(i\omega,\mu)\|_2} \\
+& \approx &  
+\displaystyle{\sup_{\omega_j\in[\omega_{\min},\omega_{\max}]}\|H(i\omega_j,\mu)-\tilde{H}(i\omega_j,\mu)\|_2,}
+\end{array}
+\label{eq:errH}
+\end{equation}
+where $H(s,\mu)=C\bigl(sE-A(\mu)\bigr)^{-1}B$ and $\tilde{H}(s,\mu)=\tilde{C}\bigl(s\tilde{E}-\tilde{A}(\mu)\bigr)^{-1}\tilde{B}$ are the transfer functions of the original and the reduced-order system.
+
+For the reference of efficiency, all computations are performed with
+MATLAB R2018a on a standard desktop using 64-bit OS
+Windows 10, equipped with 3.20 GHz 16 GB Intel Core
+i7-8700U CPU.
+\subsection{A model for heat conduction in solid material}
+This model is adapted from the one used in \cite{KrePT14}.  Consider the heat equation
+\begin{align}
+\begin{split}\label{Sec8ExHeatEq}
+\frac{\partial \vartheta}{\partial t}-\nabla(\sigma(\xi)\nabla \vartheta) = f&\quad \mbox{in}\quad \Omega\times (0,T),\\
+\vartheta=0&\quad \mbox{on}\; \partial\Omega \times (0,T),
+\end{split}
+\end{align}
+with the heat conductivity coefficient
+\begin{equation}
+\sigma(\xi) = \left\{ 
+\begin{array}{lcl}
+1+\mu_i&\mbox{for}&\xi\in D_i, \; i=1,\ldots,2,\\
+1&\mbox{for}&\xi\in \Omega\backslash (\cup_{i=1}^2D_i),\\
+\end{array}
+\right.
+\end{equation}
+where $D_i\subset \Omega=(0,4)^2$, $i=1,\ldots,2$, are two discs of radius $0.5$ centered at $(1,1)$,% $(3,1)$, $(1,3)$,
+ and $(3,3)$, respectively, and the parameter $\mu=[\mu_1,\mu_2]^T$ 
+varies in $\mathcal{D}=[1,10]\times [4,10]$. Equation (\ref{Sec8ExHeatEq}) with the source term $f\equiv 1$ is 
+discretized using the finite element method with piecewise linear basis functions resulting in 
+a~system \eqref{eq:psys} of dimension $N=1580$ with the symmetric positive definite mass matrix 
+$E(\mu)\equiv E$ and the stiffness matrix
+\begin{equation}
+A(\mu) = \mu_1A_1 + \mu_2 A_2 + A_3,
+\end{equation}
+where $A_i$, $i=1, 2$, are symmetric negative semi-definite, and $A_3$ is symmetric negative definite. 
+The input matrix $B(\mu)\equiv B\in\mathbb{R}^{N}$ originates from the source function~$f$, and the output matrix
+$C(\mu)\equiv C=1/N[1,\ldots, 1]\in\mathbb{R}^{1\times N}$. 
+The data were provided by the authors of \cite{KrePT14} for which we would like to thank . %and can be downloaded from \url{http://anchp.epfl.ch/htucker}.
+
+\begin{figure}[th]
+	\begin{minipage}{.5\textwidth}
+		\includegraphics[width=1\textwidth]{pdfFIG/morerr_interp.pdf}\\
+		\includegraphics[width=1\textwidth]{pdfFIG/morerr_interp3.pdf}
+		%\hspace*{.4\textwidth} (a)
+	\end{minipage}%\hspace*{2mm}
+	\begin{minipage}{.5\textwidth}
+		\includegraphics[width=1\textwidth]{pdfFIG/morerr_maninterp.pdf} \\
+		\includegraphics[width=1\textwidth]{pdfFIG/morerr_maninterp3.pdf}
+		%\hspace*{.4\textwidth} (b)
+	\end{minipage}
+	\caption{The heat conduction model equation: errors of ROMs at test points. Data for top figures: training grid $\mu_1 = 1:1:10, \mu_2 = 5:1:10$ and test grid $\mu_1 = 1:0.25:10, \mu_2 = 5:0.2:10$; data for bottom figures: training grid $\mu_1 = 1:4:9, \mu_2 = 4:3:10$ and test grid $\mu_1 = 1:0.25:9, \mu_2 = 4:0.2:10$. The left figures present the error of the ROMs produced by the algebraic method and the right figures present that by the geometric method.}
+	\label{fig:err_example1}
+\end{figure}
+
+First, we fix a uniform grid $\mu_1,\dots, \mu_q \in \mathcal{D}$ , which will be specified in the caption of error figures. At those points, we solve \eqref{eq:LyapContr} and \eqref{eq:LyapObser} using the low-rank ADI method \cite{LiW02} with a prescribed tolerance $1\mbox{e}-10$. We end up with local approximate solutions whose rank varies from 25 to 27. In order to apply the presented interpolation on manifold, we slightly truncate them to make them all of rank 25. Then, the working manifold in this case is $\mathcal{S}_+(25,1580)$. Note that for method presented in section~\ref{Sec:BT_standard interpolation}, local solutions at training points do not necessarily have the same rank.
+
+The pre-computed solutions are then employed as data to interpolate for evaluate the two gramians which in turn are use to construct the ROM at test points. To decide the reduced order, we use the criterion that $\sigma_r(\mu)/\sigma_1(\mu) < 1\mbox{e}-8$ which varies $r$ between 12 to 15 at different test points. Finally, we plot the approximate absolute errors with respect to $\mathcal{H}_\infty$-norm as defined in \eqref{eq:errH}. For ease of reading numerical results as figures, we simply choose the set o test points as a finer grid of the training grid which will be specified later. Two situations are set and the corresponding results are showed in Figure~\ref{fig:err_example1}. It can be observed that, in the same setting, the algebraic method delivers a slightly smaller error than the geometric one. This is most probably due to the truncation step to make all the local gramians have the same rank. %To verify this, we perform another test for the algebraic method where the interpolated data are the same as those used for the geometric method. The setting is the same as the top part of Figure~\ref{fig:err_example1} and the corresponding result is showed in Figure~\ref{fig:err2_example1} left. The error is then of the same order as geometric method (Fig.~\ref{fig:err_example1} top - right).
+ Moreover, the figures show that the error corresponding to small $\mu_1$ tends to be larger. This suggests that we should use more interpolation data in this area. To this end, we try an adaptively finer grid for the algebraic method and derived the result as showed in Figure~\ref{fig:err2_example1} left. Finally, to give the reader a view on the relative errors of the method, we plot the $\mathcal{H}_\infty$-norm of the full-order transfer function in Figure~\ref{fig:err2_example1} right.
+
+\begin{figure}[th]
+	\begin{minipage}{.5\textwidth}
+	\includegraphics[width=\textwidth]{pdfFIG/morerr_interp4.pdf}\\
+		%\hspace*{.4\textwidth} (a)
+	\end{minipage}
+	\begin{minipage}{.5\textwidth}
+		\includegraphics[width=\textwidth]{pdfFIG/nrmorig2.pdf} %\\
+		%\hspace*{.4\textwidth} (b)
+	\end{minipage}
+	\caption{The heat conduction model equation: errors of ROMs at test points. The left figure presents the error with adaptive grid $\mu_1 = [1\ 2\ 3\ 4\ 5\ 9], \mu_2 = 4:3:10$. The right figure indicates the norm of the full-order transfer function on the parameter domain.}
+	\label{fig:err2_example1}
+\end{figure}
+
+We now report the time consumed by the two proposed methods. We will use the first setting that produced the errors as showed in Figure~\ref{fig:err2_example1} top. First, solving two Lyapunov equations at 60 training points needs ..... sec. Then, interpolation of low-rank solutions of these two equations using the geometric approach at 926 test points costs .... sec. From the difference in time consumed, clearly this method can be a good candidate for quickly computing the solutions of parametric Lyapunov equations. 
+
+\nts{I will add later!}
+
+\nts{tried algebraic approach with compression/projection}
+
+\subsection{An anmometer model}
+In this second example, we want to verify the numerical behavior of the proposed methods when applied to fairly large problem. To this end, we consider now a model for a~thermal based flow sensor; see \cite{MoosRGKH05} and references therein. 
+Simulation of this device requires solving a convection-diffusion partial differential equation of the form
+\begin{equation}\label{Sec7CDPDEs}
+\rho c \frac{\partial \vartheta}{\partial t} = \nabla(\kappa \nabla \vartheta)-\rho cv\nabla \vartheta +\dot{q},
+\end{equation}
+where $\rho$ denotes the mass density, $c$ %\in [0,1]$
+ is the specific heat, $\kappa$
+  %\in [1,2]$
+   is the thermal conductivity, 
+$v$
+%\in [0.1,2]$
+ is the fluid velocity, $\vartheta$ is the temperature, and $\dot q$ is the heat flow into the system 
+caused by the heater. The considered model is restricted to the case $\rho = 1, c = 1, \kappa = 1$ and $v \in [0,1]$ which correseponds to the 1-parameter model. The finite element discretization of 
+\eqref{Sec7CDPDEs} leads to system \eqref{eq:psys} of order $N=29008$ with the symmetric positive definite mass matrix $E(\mu) = E$ 
+and the stiffness matrix $A(\mu)=A_1+vA_2$, where 
+$A_1$ is symmetric negative definite, $A_2$ is non-symmetric but negative semi-definite.
+The input matrix $B\in\mathbb{R}^N$ and the output matrix $C\in\mathbb{R}^{1\times N}$ are parameter-independent.
+The reader is referred to \cite{morwiki_anemom} and references therein for more detailed descriptions and the numerical data.
+
 
 
 \section{Conclusion}\label{Sec:Concl}
