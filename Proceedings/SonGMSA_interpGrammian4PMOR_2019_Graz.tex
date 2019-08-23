@@ -256,7 +256,7 @@ Likewise,
 \end{equation}
 
 Note that computation of parametric gramians is not the ultimate goal of the task. After interpolation, we still have to proceed steps \eqref{eq:SVD} and \eqref{eq:RedMatr} to get the reduced-order model; computation explicitly involves large matrices which may reduce the efficiency of the proposed method. %Meanwhile, due to the simulation requirement of parameter dependent systems, the online stage should have the computational complexity independent of $n$.
-A solution to overcome this is to rigorously separate all computation into two stages. The first stage can be expensive but must be independent of $\mu$ so that it can serve as a preparation step and the derived data can be used for any value of $\mu$.  In the second step, where one has to compute the ROM at any new value of $\mu$ in the parameter domain, must be fast. A criterion for being fast is that its computational complexity is independent of large order $n$. This approach is mentioned as offline-online decomposition and quite well-known in the reduced basis community \cite{PateR07,HeRS16}. Details are presented in the next subsection. %The advantage of this algorithm is that expensive and time consuming steps can be computed and the data can be stored for the online stage. The online stage, counted from the moment when a value of $p$ is given till the moment that the reduced order is computed, has computational complexity independent of $n$ and therefore can be used in real time \cite{Son13}. Unfortunately, this decomposition can be applied only to the case that $E(p)$ is non-singular. The explanation for this fact and the detail of the method is given in the next subsection.
+A solution to overcome this is to rigorously separate all computation into two stages. The first stage can be expensive but must be independent of $\mu$ so that it can serve as a preparation step and the derived data can be used for any value of $\mu$.  The second step, where one has to compute the ROM at any new value of $\mu$ in the parameter domain, must be fast. A criterion for being fast is that its computational complexity is independent of large order $n$. This approach is mentioned as offline-online decomposition and quite well-known in the reduced basis community \cite{PateR07,HeRS16}.  Details are presented in the next subsection. We also would like to drive the reader's attention to a related result %The advantage of this algorithm is that expensive and time consuming steps can be computed and the data can be stored for the online stage. The online stage, counted from the moment when a value of $p$ is given till the moment that the reduced order is computed, has computational complexity independent of $n$ and therefore can be used in real time \cite{Son13}. Unfortunately, this decomposition can be applied only to the case that $E(p)$ is non-singular. The explanation for this fact and the detail of the method is given in the next subsection.
 
 \subsection{Offline-online decomposition}
 To enable the online-offline decomposition, we need an assumption that the matrices of system (\ref{eq:psys}) depend affinely on the parameter $p$. More precisely,
@@ -455,14 +455,44 @@ where $\rho$ denotes the mass density, $c$ %\in [0,1]$
 $v$
 %\in [0.1,2]$
  is the fluid velocity, $\vartheta$ is the temperature, and $\dot q$ is the heat flow into the system 
-caused by the heater. The considered model is restricted to the case $\rho = 1, c = 1, \kappa = 1$ and $v \in [0,1]$ which correseponds to the 1-parameter model. The finite element discretization of 
+caused by the heater. The considered model is restricted to the case $\rho = 1, c = 1, \kappa = 1$ and $v \in [0,1]$ which corresponds to the 1-parameter model. The finite element discretization of 
 \eqref{Sec7CDPDEs} leads to system \eqref{eq:psys} of order $N=29008$ with the symmetric positive definite mass matrix $E(\mu) = E$ 
 and the stiffness matrix $A(\mu)=A_1+vA_2$, where 
 $A_1$ is symmetric negative definite, $A_2$ is non-symmetric but negative semi-definite.
 The input matrix $B\in\mathbb{R}^N$ and the output matrix $C\in\mathbb{R}^{1\times N}$ are parameter-independent.
 The reader is referred to \cite{morwiki_anemom} and references therein for more detailed descriptions and the numerical data.
 
+For this model, we use the training grid as $\mu = v = 0:0.1:1$ while the test grid is randomly generated within the range of the domain. The tolerance for the low-rank ADI solver and that for balancing truncation are chosen as $1\mbox{e}-8$. This setting results in ROMs with different reduced orders at test points: the one produced by the geometric approach has rank between 11 and 18 while that by algebraic approach is from 18-32. Error is visualized in Fig.~\ref{fig:example2}. A closer look at the figure may imply, that the error of the geometric approach tend to be smaller when the test point is far from the training points and vice versa. 
 
+The time consumed by different tasks are summarized in Table~\ref{tab:TimeConsumedExample2}. 
+
+
+\begin{figure}[th]
+	\begin{center}
+		\includegraphics[width=0.8\textwidth]{pdfFIG/err_both_rand_rng0.pdf}
+	\caption{The 1-parameter anemometer model: errors of ROMs at test points.}
+	\label{fig:example2}
+\end{center}
+\end{figure}
+
+\begin{table}
+	\begin{center}
+\begin{tabular}{ |p{5cm}|p{5cm}|  }
+	\hline
+	\multicolumn{2}{|c|}{Solving two Lyapunov equations at 11 grid points: 181} \\
+	\hline
+	Geometric approach& Algebraic approach \\
+	\hline
+	   & Offline: 21 \\
+	   \hline
+	Interpolation on $\mathcal{S}_(k,n)$: 11.5 & Online: 0.03\\
+	Compute ROMs: 0.3 &\\
+	\hline
+\end{tabular}
+\caption{The 1-parameter anemometer model: Time consumed by different tasks (sec.)}
+\label{tab:TimeConsumedExample2}
+\end{center}
+\end{table}
 
 \section{Conclusion}\label{Sec:Concl}
 
